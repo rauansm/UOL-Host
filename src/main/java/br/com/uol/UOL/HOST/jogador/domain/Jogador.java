@@ -1,7 +1,9 @@
 package br.com.uol.UOL.HOST.jogador.domain;
 
+import br.com.uol.UOL.HOST.jogador.application.api.JogadorRequest;
 import jakarta.persistence.*;
 import lombok.AccessLevel;
+import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
@@ -9,6 +11,7 @@ import java.util.UUID;
 
 @Entity
 @NoArgsConstructor(access = AccessLevel.PRIVATE)
+@AllArgsConstructor
 @Getter
 public class Jogador {
     @Id
@@ -17,10 +20,18 @@ public class Jogador {
     private UUID idJogador;
     @Column(nullable = false)
     private String nome;
-    @Column(nullable = false)
+    @Column(nullable = false, unique = true)
     private String email;
     private String telefone;
     private String codinome;
     @Enumerated(EnumType.STRING)
     private Grupo grupo;
+
+    public Jogador(JogadorRequest jogadorRequest) {
+        this.nome = jogadorRequest.getNome();
+        this.email = jogadorRequest.getEmail();
+        this.telefone = jogadorRequest.getTelefone();
+        this.codinome = jogadorRequest.getCodinome();
+        this.grupo = jogadorRequest.getGrupo();
+    }
 }
