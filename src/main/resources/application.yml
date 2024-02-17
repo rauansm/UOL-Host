@@ -14,3 +14,8 @@ spring:
       enabled: true
       path: /h2-console
 
+uol:
+  codinome:
+    url:
+      json: https://raw.githubusercontent.com/uolhost/test-backEnd-Java/master/referencias/vingadores.json
+      xml: https://raw.githubusercontent.com/uolhost/test-backEnd-Java/master/referencias/liga_da_justica.xml

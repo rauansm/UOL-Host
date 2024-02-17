@@ -10,5 +10,5 @@ public interface JogadorAPI {
 
     @PostMapping
     @ResponseStatus(code = HttpStatus.CREATED)
-    JogadorReponse criaJogador (@Valid @RequestBody JogadorRequest jogadorRequest);
+    JogadorReponse criaJogador (@Valid @RequestBody JogadorRequest jogadorRequest) ;
 }

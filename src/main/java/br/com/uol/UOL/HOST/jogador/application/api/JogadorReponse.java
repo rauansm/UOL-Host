@@ -13,7 +13,7 @@ public class JogadorReponse {
     private String nome;
     private String email;
     private String telefone;
-    private String codinome;
+    private String Codinome;
     private Grupo grupo;
 
     public JogadorReponse(Jogador jogador) {
@@ -21,7 +21,7 @@ public class JogadorReponse {
         this.nome = jogador.getNome();
         this.email = jogador.getEmail();
         this.telefone = jogador.getTelefone();
-        this.codinome = jogador.getCodinome();
+        this.Codinome = jogador.getCodinome();
         this.grupo = jogador.getGrupo();
     }
 }

@@ -1,5 +1,6 @@
 package br.com.uol.UOL.HOST.jogador.domain;
 
+import br.com.uol.UOL.HOST.codinome.domain.Codinome;
 import br.com.uol.UOL.HOST.jogador.application.api.JogadorRequest;
 import jakarta.persistence.*;
 import lombok.AccessLevel;
@@ -27,11 +28,11 @@ public class Jogador {
     @Enumerated(EnumType.STRING)
     private Grupo grupo;
 
-    public Jogador(JogadorRequest jogadorRequest) {
+    public Jogador(JogadorRequest jogadorRequest, Codinome codinome) {
         this.nome = jogadorRequest.getNome();
         this.email = jogadorRequest.getEmail();
         this.telefone = jogadorRequest.getTelefone();
-        this.codinome = jogadorRequest.getCodinome();
+        this.codinome = codinome.getCodinome();
         this.grupo = jogadorRequest.getGrupo();
     }
 }

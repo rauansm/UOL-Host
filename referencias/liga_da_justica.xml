@@ -1,10 +1,10 @@
 <liga_da_justica>
-	<codinomes>
-			<codinome>Lanterna Verde</codinome>
-			<codinome>Flash</codinome>
-			<codinome>Aquaman</codinome>
-			<codinome>Batman</codinome>			
-			<codinome>Superman</codinome>			
-			<codinome>Mulher Maravilha</codinome>			
-	</codinomes>
+	<Codinomes>
+			<Codinome>Lanterna Verde</Codinome>
+			<Codinome>Flash</Codinome>
+			<Codinome>Aquaman</Codinome>
+			<Codinome>Batman</Codinome>
+			<Codinome>Superman</Codinome>
+			<Codinome>Mulher Maravilha</Codinome>
+	</Codinomes>
 </liga_da_justica>
