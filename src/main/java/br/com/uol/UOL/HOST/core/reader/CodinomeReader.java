@@ -3,6 +3,7 @@ package br.com.uol.UOL.HOST.core.reader;
 import br.com.uol.UOL.HOST.codinome.domain.Codinome;
 import br.com.uol.UOL.HOST.codinome.domain.LigaDaJustica;
 import br.com.uol.UOL.HOST.codinome.domain.Vingadores;
+import br.com.uol.UOL.HOST.handler.APIException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
@@ -33,7 +34,7 @@ public class CodinomeReader implements ArquivoCodinome {
                 return vingadores.getCodinomes();
             }
         } catch (IOException e) {
-            throw new RuntimeException("Erro ao ler o JSON", e);
+            throw APIException.infra("Erro ao ler o JSON", e);
         }
     }
 
@@ -45,7 +46,7 @@ public class CodinomeReader implements ArquivoCodinome {
                 LigaDaJustica ligaDaJustica = (LigaDaJustica) unmarshaller.unmarshal(new URL(codinomeProperties.getXml()));
                 return converterStringParaCodinomes(ligaDaJustica.getCodinomes().getCodinome());
             } catch (JAXBException | IOException e) {
-                throw new RuntimeException("Erro ao ler o XML", e);
+                throw APIException.infra("Erro ao ler o XML", e);
             }
         }
 

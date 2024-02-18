@@ -15,9 +15,11 @@ import java.util.List;
 @Service
 @RequiredArgsConstructor
 @Log4j2
-public class JogadorApplicationService implements JogadorService{
+public class JogadorApplicationService implements JogadorService {
+
     private final JogadorRepository jogadorRepository;
     private final CodinomeService codinomeService;
+
     @Override
     public JogadorReponse criaJogador(JogadorRequest jogadorRequest)  {
         log.info("[inicia] JogadorApplicationService - criaJogador");

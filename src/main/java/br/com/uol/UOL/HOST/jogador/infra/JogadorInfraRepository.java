@@ -1,10 +1,13 @@
 package br.com.uol.UOL.HOST.jogador.infra;
 
+import br.com.uol.UOL.HOST.handler.APIException;
+import br.com.uol.UOL.HOST.handler.ProblemType;
 import br.com.uol.UOL.HOST.jogador.application.repository.JogadorRepository;
 import br.com.uol.UOL.HOST.jogador.domain.Grupo;
 import br.com.uol.UOL.HOST.jogador.domain.Jogador;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
+import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
@@ -18,9 +21,12 @@ public class JogadorInfraRepository implements JogadorRepository {
     @Override
     public Jogador salva(Jogador jogador) {
         log.info("[inicia] JogadorInfraRepository - salva");
-        Jogador jogadorSalvo = jogadorSpringDataJPA.save(jogador);
+        try {
+        jogadorSpringDataJPA.save(jogador);
+        } catch (DataIntegrityViolationException e) {
+        throw APIException.negocio(String.format("Já existe um jogador cadastrado com o email %s.", jogador.getEmail()));}
         log.info("[finaliza] JogadorInfraRepository - salva");
-        return jogadorSalvo;
+        return jogador;
     }
 
     @Override

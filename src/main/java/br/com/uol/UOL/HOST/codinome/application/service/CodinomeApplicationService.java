@@ -2,6 +2,7 @@ package br.com.uol.UOL.HOST.codinome.application.service;
 
 import br.com.uol.UOL.HOST.codinome.domain.Codinome;
 import br.com.uol.UOL.HOST.core.reader.ArquivoCodinome;
+import br.com.uol.UOL.HOST.handler.APIException;
 import br.com.uol.UOL.HOST.jogador.domain.Grupo;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
@@ -19,9 +20,11 @@ public class CodinomeApplicationService implements CodinomeService {
 
     @Override
     public Codinome buscaCodinomeDisponivel(List<String> codinomesEmUso, Grupo grupo)  {
+        log.info("[inicia] CodinomeApplicationService - buscaCodinomeDisponivel");
         List<Codinome> codinomesArquivo = buscaCodinomesDoArquivo(grupo);
         List<Codinome> codinomesDisponiveis = verificaCodinomesDisponiveis(codinomesArquivo, codinomesEmUso);
         Codinome.verificaSeExisteCodinomeDisponivel(codinomesDisponiveis);
+        log.info("[finaliza] CodinomeApplicationService - buscaCodinomeDisponivel");
         return Codinome.obterCodinomeAleatorio(codinomesDisponiveis);
     }
 
@@ -38,7 +41,7 @@ public class CodinomeApplicationService implements CodinomeService {
         if (grupo.equals(Grupo.LIGA_DA_JUSTICA)) {
             return arquivoCodinome.lerCodinomesXML();
         }
-        throw new IllegalArgumentException("Grupo inválido: " + grupo);
+        throw APIException.negocio("Grupo inválido: " + grupo);
     }
 
 }

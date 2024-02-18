@@ -1,5 +1,6 @@
 package br.com.uol.UOL.HOST.codinome.domain;
 
+import br.com.uol.UOL.HOST.handler.APIException;
 import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -18,7 +19,7 @@ public class Codinome {
 
     public static void verificaSeExisteCodinomeDisponivel(List<Codinome> codinomeDisponiveis) {
         if (codinomeDisponiveis.isEmpty()) {
-            throw new RuntimeException("Nao existe nomes disponvies");
+            throw APIException.negocio("No momento não possui codinomes disponivel para este grupo!");
         }
     }
 

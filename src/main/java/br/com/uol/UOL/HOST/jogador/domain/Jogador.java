@@ -24,7 +24,9 @@ public class Jogador {
     @Column(nullable = false, unique = true)
     private String email;
     private String telefone;
+    @Column(nullable = false)
     private String codinome;
+    @Column(nullable = false)
     @Enumerated(EnumType.STRING)
     private Grupo grupo;
 
