@@ -9,4 +9,6 @@ public interface JogadorRepository {
     Jogador salva(Jogador jogador);
 
     List<String> buscaTodosCodinomesDoGrupo(Grupo grupo);
+
+    List<Jogador> buscaTodosJogadores();
 }

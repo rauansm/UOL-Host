@@ -4,7 +4,9 @@ import br.com.uol.UOL.HOST.jogador.domain.Grupo;
 import br.com.uol.UOL.HOST.jogador.domain.Jogador;
 import lombok.Value;
 
+import java.util.List;
 import java.util.UUID;
+import java.util.stream.Collectors;
 
 @Value
 public class JogadorReponse {
@@ -23,5 +25,11 @@ public class JogadorReponse {
         this.telefone = jogador.getTelefone();
         this.Codinome = jogador.getCodinome();
         this.grupo = jogador.getGrupo();
+    }
+
+    public static List<JogadorReponse> converte(List<Jogador> jogadores) {
+         return jogadores.stream()
+                .map(JogadorReponse::new)
+                .collect(Collectors.toList());
     }
 }

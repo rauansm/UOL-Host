@@ -36,4 +36,12 @@ public class JogadorInfraRepository implements JogadorRepository {
         log.info("[finaliza] JogadorInfraRepository - buscaTodosCodinomesDoGrupo");
         return codinomes;
     }
+
+    @Override
+    public List<Jogador> buscaTodosJogadores() {
+        log.info("[inicia] JogadorInfraRepository - buscaTodosJogadores");
+        List<Jogador> jogadores = jogadorSpringDataJPA.findAll();
+        log.info("[finaliza] JogadorInfraRepository - buscaTodosJogadores");
+        return jogadores;
+    }
 }

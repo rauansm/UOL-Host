@@ -29,4 +29,12 @@ public class JogadorApplicationService implements JogadorService {
         log.info("[finaliza] JogadorApplicationService - criaJogador");
         return new JogadorReponse(jogador);
     }
+
+    @Override
+    public List<JogadorReponse> listaTodosJogadores() {
+        log.info("[inicia] JogadorApplicationService - listaTodosJogadores");
+        List<Jogador> jogadores = jogadorRepository.buscaTodosJogadores();
+        log.info("[finaliza] JogadorApplicationService - listaTodosJogadores");
+        return JogadorReponse.converte(jogadores);
+    }
 }
