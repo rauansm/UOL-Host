@@ -1,13 +1,14 @@
 package br.com.uol.UOL.HOST.jogador.infra;
 
 import br.com.uol.UOL.HOST.handler.APIException;
-import br.com.uol.UOL.HOST.handler.ProblemType;
 import br.com.uol.UOL.HOST.jogador.application.repository.JogadorRepository;
 import br.com.uol.UOL.HOST.jogador.domain.Grupo;
 import br.com.uol.UOL.HOST.jogador.domain.Jogador;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.dao.DataIntegrityViolationException;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
@@ -38,9 +39,9 @@ public class JogadorInfraRepository implements JogadorRepository {
     }
 
     @Override
-    public List<Jogador> buscaTodosJogadores() {
+    public Page<Jogador> buscaTodosJogadores(Pageable pageable) {
         log.info("[inicia] JogadorInfraRepository - buscaTodosJogadores");
-        List<Jogador> jogadores = jogadorSpringDataJPA.findAll();
+        Page<Jogador> jogadores = jogadorSpringDataJPA.findAll(pageable);
         log.info("[finaliza] JogadorInfraRepository - buscaTodosJogadores");
         return jogadores;
     }

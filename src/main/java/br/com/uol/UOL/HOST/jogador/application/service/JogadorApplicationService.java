@@ -8,6 +8,9 @@ import br.com.uol.UOL.HOST.jogador.application.repository.JogadorRepository;
 import br.com.uol.UOL.HOST.jogador.domain.Jogador;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageImpl;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -31,10 +34,12 @@ public class JogadorApplicationService implements JogadorService {
     }
 
     @Override
-    public List<JogadorReponse> listaTodosJogadores() {
+    public Page<JogadorReponse> listaTodosJogadores(Pageable pageable) {
         log.info("[inicia] JogadorApplicationService - listaTodosJogadores");
-        List<Jogador> jogadores = jogadorRepository.buscaTodosJogadores();
+        Page<Jogador> jogadores = jogadorRepository.buscaTodosJogadores(pageable);
+        List<JogadorReponse> jogadoresListResponse = JogadorReponse.converte(jogadores);
+        Page<JogadorReponse> jogadorPageResponse = new PageImpl<>(jogadoresListResponse,pageable, jogadores.getTotalElements());
         log.info("[finaliza] JogadorApplicationService - listaTodosJogadores");
-        return JogadorReponse.converte(jogadores);
+        return jogadorPageResponse;
     }
 }

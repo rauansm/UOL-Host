@@ -3,6 +3,7 @@ package br.com.uol.UOL.HOST.jogador.application.api;
 import br.com.uol.UOL.HOST.jogador.domain.Grupo;
 import br.com.uol.UOL.HOST.jogador.domain.Jogador;
 import lombok.Value;
+import org.springframework.data.domain.Page;
 
 import java.util.List;
 import java.util.UUID;
@@ -27,7 +28,7 @@ public class JogadorReponse {
         this.grupo = jogador.getGrupo();
     }
 
-    public static List<JogadorReponse> converte(List<Jogador> jogadores) {
+    public static List<JogadorReponse> converte(Page<Jogador> jogadores) {
          return jogadores.stream()
                 .map(JogadorReponse::new)
                 .collect(Collectors.toList());

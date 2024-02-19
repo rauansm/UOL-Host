@@ -1,11 +1,10 @@
 package br.com.uol.UOL.HOST.jogador.application.api;
 
-import br.com.uol.UOL.HOST.jogador.domain.Jogador;
 import jakarta.validation.Valid;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
-
-import java.util.List;
 
 @RestController
 @RequestMapping("/v1/jogador")
@@ -17,5 +16,5 @@ public interface JogadorAPI {
 
     @GetMapping
     @ResponseStatus(code = HttpStatus.OK)
-    List<JogadorReponse> listaTodosJogadores();
+    Page<JogadorReponse> listaTodosJogadores(Pageable pageable);
 }

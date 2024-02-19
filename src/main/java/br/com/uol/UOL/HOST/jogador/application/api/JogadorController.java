@@ -3,10 +3,9 @@ package br.com.uol.UOL.HOST.jogador.application.api;
 import br.com.uol.UOL.HOST.jogador.application.service.JogadorService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.web.bind.annotation.RestController;
-
-import java.io.IOException;
-import java.util.List;
 
 @RestController
 @Log4j2
@@ -22,9 +21,9 @@ public class JogadorController implements JogadorAPI {
     }
 
     @Override
-    public List<JogadorReponse> listaTodosJogadores() {
+    public Page<JogadorReponse> listaTodosJogadores(Pageable pageable) {
         log.info("[inicia] JogadorController - listaTodosJogadores");
-        List<JogadorReponse> jogadores = jogadorService.listaTodosJogadores();
+        Page<JogadorReponse> jogadores = jogadorService.listaTodosJogadores(pageable);
         log.info("[finaliza] JogadorController - listaTodosJogadores");
         return jogadores;
     }
