@@ -1,4 +1,4 @@
-package br.com.uol.UOL.HOST;
+package br.com.uol;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

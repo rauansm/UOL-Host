@@ -1,4 +1,4 @@
-package br.com.uol.UOL.HOST;
+package br.com.uol;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
