@@ -1,4 +1,4 @@
-package br.com.uol.core.reader;
+package br.com.uol.core.properties;
 
 import lombok.Getter;
 import lombok.Setter;

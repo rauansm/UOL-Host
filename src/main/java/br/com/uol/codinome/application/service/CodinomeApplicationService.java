@@ -1,7 +1,7 @@
 package br.com.uol.codinome.application.service;
 
 import br.com.uol.codinome.domain.Codinome;
-import br.com.uol.core.reader.ArquivoCodinome;
+import br.com.uol.codinome.infra.reader.ArquivoCodinome;
 import br.com.uol.handler.APIException;
 import br.com.uol.jogador.domain.Grupo;
 import lombok.RequiredArgsConstructor;

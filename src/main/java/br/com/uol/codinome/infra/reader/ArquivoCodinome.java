@@ -1,4 +1,4 @@
-package br.com.uol.core.reader;
+package br.com.uol.codinome.infra.reader;
 
 import br.com.uol.codinome.domain.Codinome;
 

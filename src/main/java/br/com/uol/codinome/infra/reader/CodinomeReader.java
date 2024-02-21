@@ -1,8 +1,9 @@
-package br.com.uol.core.reader;
+package br.com.uol.codinome.infra.reader;
 
 import br.com.uol.codinome.domain.Codinome;
 import br.com.uol.codinome.domain.LigaDaJustica;
 import br.com.uol.codinome.domain.Vingadores;
+import br.com.uol.core.properties.CodinomeProperties;
 import br.com.uol.handler.APIException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.RequiredArgsConstructor;
