@@ -10,8 +10,8 @@ import java.io.InputStream;
 import java.net.URL;
 import java.util.List;
 
-public class LerCodinomesJSON {
-
+public class LerCodinomesJSON implements CodinomeInfra{
+    @Override
     public List<Codinome> lerCodinomes() {
         try {
             ObjectMapper objectMapper = new ObjectMapper();

@@ -12,8 +12,8 @@ import java.net.URL;
 import java.util.List;
 import java.util.stream.Collectors;
 
-public class LerCodinomesXML {
-
+public class LerCodinomesXML implements CodinomeInfra{
+    @Override
     public List<Codinome> lerCodinomes() {
         try {
             JAXBContext jaxbContext = JAXBContext.newInstance(LigaDaJustica.class);

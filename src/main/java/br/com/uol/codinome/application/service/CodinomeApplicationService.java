@@ -17,7 +17,7 @@ public class CodinomeApplicationService implements CodinomeService {
     @Override
     public Codinome buscaCodinomeDisponivel(List<String> codinomesEmUso, Grupo grupo)  {
         log.info("[inicia] CodinomeApplicationService - buscaCodinomeDisponivel");
-        List<Codinome> codinomesArquivo = grupo.lerCodinomes();
+        List<Codinome> codinomesArquivo = grupo.superHerois().lerCodinomes();
         List<Codinome> codinomesDisponiveis = verificaCodinomesDisponiveis(codinomesArquivo, codinomesEmUso);
         log.info("[finaliza] CodinomeApplicationService - buscaCodinomeDisponivel");
         return Codinome.obterCodinomeAleatorio(codinomesDisponiveis);
